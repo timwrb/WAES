@@ -18,7 +18,7 @@ import Navbar from "@/Layouts/Navbar.vue";
 
             <div class="flex justify-between">
                 <div class="rounded-lg px-2 py-1 border-red-600 bg-red-200 text-red-600">€ {{ $page.props.expense.amount }}</div>
-                <div class="rounded-lg px-2 py-1 border-grey-500 bg-gray-200 text-gray-500">{{ $page.props.expense.category_id }}</div>
+                <div class="rounded-lg px-2 py-1 border-grey-500 bg-gray-200 text-gray-500">{{ $page.props.expense.category_name }}</div>
 
                 <div class="flex">
                     <div v-if="$page.props.expense.method === 'Bargeld'" class="rounded-lg px-2 py-1 border-green-500 bg-green-200 text-green-500 flex flex-row gap-1">

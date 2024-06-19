@@ -72,6 +72,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/view/{id}', function ($id) {
         $expense = Expense::findOrFail($id);
+        $categories = Category::all();
+
+        $category = $categories->firstWhere('id', $expense->category_id);
+        $expense->category_name = $category ? $category->name : null;
+
         return Inertia::render('ViewExpensePage', [
             'expense' => $expense
         ]);
