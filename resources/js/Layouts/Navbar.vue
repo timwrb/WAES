@@ -26,8 +26,11 @@ const closeDropdownAdd = () => {
 <template>
     <nav class="w-full h-[4rem] bg-gray-200 px-[2rem] flex justify-between items-center">
 
-        <div>
-            <h1 class="font-semibold text-[2rem]">WAES Portfolio 2024</h1>
+        <div class="flex flex-row items-center gap-4">
+            <Link href="/" class="font-semibold text-[2rem] cursor-pointer hover:opacity-75 transition-all duration-100">WAES Portfolio 2024</Link>
+            <Link href="/info" class="rounded-full p-2 bg-gray-300 cursor-pointer active:scale-95 transition-all duration-150">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>
+            </Link>
         </div>
 
 
@@ -50,7 +53,7 @@ const closeDropdownAdd = () => {
                     <ul v-if="isOpenAdd" class="absolute right-0 mt-4 p-2 shadow-lg bg-white rounded-[1rem] border border-gray-300 w-[15rem] z-20 transition-all duration-150">
 
                         <li v-if="$page.props.auth.user">
-                            <div><Link href="/create/expense" class="flex flex-row gap-2 text-semibold text-[1.1rem] h-[3rem] items-center rounded-[1rem] pl-2 hover:bg-gray-200" @click="closeDropdownAdd">
+                            <div><Link href="/create/expense" method="get" class="flex flex-row gap-2 text-semibold text-[1.1rem] h-[3rem] items-center rounded-[1rem] pl-2 hover:bg-gray-200" @click="closeDropdownAdd">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
                                 Ausgabe Hinzufügen</Link></div>
 

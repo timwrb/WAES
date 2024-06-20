@@ -27,11 +27,11 @@ Route::get('/', function () {
     ]);
 })->name('landing-page');
 
+Route::get('/info', function () {
+    return Inertia::render('InfoPage');
+})->name('info');
 
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -46,16 +46,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/delete/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
     Route::get('/create/category', [CategoryController::class, 'get'])->name('category.create.form');
 
-    Route::get('/edit/expense/{id}', function ($id) {
-        $expense = Expense::with('category')->findOrFail($id);
 
-        $expense->category_name = $expense->category ? $expense->category->name : null;
-
-        return Inertia::render('EditExpensePage', [
-            'expense' => $expense,
-            'categories' => Category::all()
+    Route::get('/create/expense', function () {
+        $categories = Category::all();
+        return Inertia::render('CreateExpensePage', [
+            'categories' => $categories,
         ]);
-    })->name('expense.edit.form');
+    })->name('expense.create.form');
 
     Route::get('/edit/expense/{id}', function ($id) {
         $expense = Expense::findOrFail($id);
@@ -76,7 +73,6 @@ Route::middleware('auth')->group(function () {
 
         $category = $categories->firstWhere('id', $expense->category_id);
         $expense->category_name = $category ? $category->name : null;
-
         return Inertia::render('ViewExpensePage', [
             'expense' => $expense
         ]);

@@ -55,9 +55,9 @@ const checkData = () => {
                 <div class="w-full flex justify-center items-center">
                     <div class="w-[20.5rem] rounded-[1rem] border border-gray-500">
 
-                        <select id="category" @change="selectCategory($event.target.value)" class="border-none rounded-[1rem] w-full outline-none text-[1rem] focus:ring-transparent placeholder:text-gray-200">
-                            <option disabled value="">Wähle eine Kategorie aus</option>
-                            <option v-for="category in $page.props.categories" :key="category.id" :value="category.id">
+                        <select id="category" v-model="form.category_id" class="border-none rounded-[1rem] w-full outline-none text-[1rem] focus:ring-transparent placeholder:text-gray-200">
+                            <option value="" disabled selected hidden >Kategorie auswählen</option>
+                            <option v-for="category in $page.props.categories" :key="category.id" :value="category.id" :selected="category.id === form.category_id">
                                 {{ category.name }}
                             </option>
                         </select>

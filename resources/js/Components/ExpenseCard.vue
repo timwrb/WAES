@@ -28,7 +28,7 @@ const deleteExpense = (id) => {
 
 <template>
 <div class="rounded-[1rem] border border-gray-300 p-4 w-full flex flex-row justify-between gap-2 items-center hover:bg-gray-100 transition-all duration-100 hover:border-gray-400 cursor-pointer">
-<section class="flex flex-row gap-2">
+<section class="flex flex-row gap-2 items-center">
     <div class="rounded-lg px-2 py-1 border-red-600 bg-red-200 text-red-600">€ {{ Expense }}</div>
     <div class="rounded-lg px-2 py-1 border-grey-500 bg-gray-200 text-gray-500">{{ Category}}</div>
 
