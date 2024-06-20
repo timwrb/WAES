@@ -11,10 +11,10 @@ import ExpenseCard from "@/Components/ExpenseCard.vue";
         <Navbar>
 
             <section class="flex justify-center">
-                <div class="w-[68rem] h-screen border-x flex justify-center">
+                <div class="w-[68rem] h-screen flex justify-center">
 
                     <section v-if="!$page.props.auth.user">
-                        <h1 class="mt-[3rem] font-semibold text-[1.5rem]">Melde dich an, um Ausgaben zu Tracken und anderen Usern geld zu schicken</h1>
+                        <h1 class="mt-[3rem] font-semibold text-[1.5rem]">Melde dich an, um deine Ausgaben zu Tracken</h1>
                     </section>
 
                     <!-- Success Nachricht -->

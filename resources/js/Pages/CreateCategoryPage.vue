@@ -1,5 +1,5 @@
 <script setup>
-import {router, useForm} from '@inertiajs/vue3'
+import {Link, router, useForm} from '@inertiajs/vue3'
 import Navbar from "@/Layouts/Navbar.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 
@@ -28,6 +28,7 @@ const deleteCategory = (id) => {
 
 <template>
     <Navbar>
+
         <form @submit.prevent="submitForm" class="px-8 flex flex-col space-y-6">
 
             <div class="w-full flex justify-center mt-[1rem]">
@@ -42,7 +43,12 @@ const deleteCategory = (id) => {
                 </div>
             </div>
 
-            <div class="w-full flex justify-center items-center mt-[3rem]">
+
+            <div class="w-full flex flex-col gap-6 justify-center items-center mt-[3rem]">
+                <Link href="/" class="flex justify-center w-[20.5rem] mt-[2rem] rounded-[1rem] border border-gray-300 px-4 py-2 bg-gray-100 active:scale-95 transition-all duration-150 hover:opacity-85 cursor-pointer">
+                    Zurück
+                </Link>
+
                 <div class="w-[20.5rem] rounded-[1rem] border border-gray-500">
                     <input type="text" id="name" v-model="form.name" class="border-none rounded-[1rem] w-full outline-none text-[1rem] focus:ring-transparent placeholder:text-gray-200" placeholder="Kategorie Name">
                 </div>
