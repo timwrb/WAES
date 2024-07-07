@@ -10,12 +10,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
-
 Route::get('/', function () {
-    $expenses = Expense::where('user_id', auth()->id())->get();
+    $expenses = Expense::where('user_id', auth()->id())->paginate(10);
     $categories = Category::all();
 
-    $expenses = $expenses->map(function ($expense) use ($categories) {
+    $expenses->getCollection()->transform(function ($expense) use ($categories) {
         $category = $categories->firstWhere('id', $expense->category_id);
         $expense->category_name = $category ? $category->name : null;
         return $expense;
@@ -26,6 +25,8 @@ Route::get('/', function () {
         'categories' => $categories,
     ]);
 })->name('landing-page');
+
+
 
 Route::get('/info', function () {
     return Inertia::render('InfoPage');

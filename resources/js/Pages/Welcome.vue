@@ -9,7 +9,7 @@ import ExpenseCard from "@/Components/ExpenseCard.vue";
 <template>
     <Head title="WAES Startseite" />
         <Navbar>
-
+<main class="flex flex-col">
             <section class="flex justify-center">
                 <div class="w-[68rem] h-screen flex justify-center">
 
@@ -29,11 +29,33 @@ import ExpenseCard from "@/Components/ExpenseCard.vue";
 
                     <div v-if="$page.props.auth.user" class="w-full px-[4rem] mt-[2rem] space-y-2">
                         <h1 class="font-semibold text-[1.3rem]">Ausgaben von {{ $page.props.auth.user.name }}</h1>
-                        <ExpenseCard v-for="expense in $page.props.expenses" :key="expense.id" :id="expense.id" :Expense="expense.amount" :Category="expense.category_name" :Method="expense.method" :Description="expense.description" />
+                        <ExpenseCard v-for="expense in $page.props.expenses.data" :key="expense.id" :id="expense.id" :Expense="expense.amount" :Category="expense.category_name" :Method="expense.method" :Description="expense.description" />
                     </div>
+
 
 
                 </div>
             </section>
+
+    <div class="mb-[6rem] mt-[4rem] flex flex-row justify-center items-center space-x-1 flex-wrap gap-y-5 select-none">
+        <div v-for="link in $page.props.expenses.links">
+            <Link
+                v-if="link.url"
+                :href="link.url"
+                v-html="link.label"
+                class="px-4 py-2 rounded-lg"
+                :class="link.active
+                        ? 'bg-gray-500 text-white font-bold border border-transparent'
+                        : 'bg-gray-300 border border-gray-300 hover:border-customBlue'"
+
+            />
+            <div v-else
+                 v-html="link.label"
+                 class="px-4 py-2 rounded-lg bg-gray-100 opacity-60 border border-gray-200 text-gray-500 select-none"
+            ></div>
+
+        </div>
+    </div>
+</main>
         </Navbar>
 </template>
