@@ -65,7 +65,7 @@ const deleteCategory = (id) => {
 
         <!-- Categories Table -->
         <div class="w-full flex justify-center mt-[3rem]">
-            <section class="w-[20.5rem] rounded-[1rem]">
+            <section class="w-[20.5rem] rounded-[1rem] flex flex-col-reverse">
 
                 <div v-for="category in $page.props.categories" :key="category.id" class="flex flex-row items-center mb-1">
                     <div class="border rounded-[1rem] px-4 py-2 cursor-pointer flex flex-row items-center justify-between w-full hover:bg-gray-100">
@@ -85,16 +85,6 @@ const deleteCategory = (id) => {
 
             </section>
 
-            <!-- <Teleport to="body">
-                <dialog class="w-screen h-screen flex justify-center items-center">
-                    <div class="w-[30rem] h-[20rem]">
-                        <p>Bist du dir sicher, dass du die Kategorie löschen willst</p>
-                        <button>Löschen</button>
-                        <button>Abbrechen</button>
-                    </div>
-
-                </dialog>
-            </Teleport> -->
 
         </div>
     </Navbar>

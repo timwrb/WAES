@@ -27,11 +27,12 @@ import ExpenseCard from "@/Components/ExpenseCard.vue";
                         {{ $page.props.error }}
                     </div>
 
+<div class="flex flex-col w-full">
                     <div v-if="$page.props.auth.user" class="w-full px-[4rem] mt-[2rem] space-y-2">
                         <h1 class="font-semibold text-[1.3rem]">Ausgaben von {{ $page.props.auth.user.name }}</h1>
                         <ExpenseCard v-for="expense in $page.props.expenses.data" :key="expense.id" :id="expense.id" :Expense="expense.amount" :Category="expense.category_name" :Method="expense.method" :Description="expense.description" />
                     </div>
-
+</div>
 
 
                 </div>

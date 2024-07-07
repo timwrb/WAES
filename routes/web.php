@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
 Route::get('/', function () {
-    $expenses = Expense::where('user_id', auth()->id())->paginate(10);
+    $expenses = Expense::where('user_id', auth()->id())
+        ->OrderBy('created_at', 'desc')
+        ->paginate(10);
     $categories = Category::all();
 
     $expenses->getCollection()->transform(function ($expense) use ($categories) {
