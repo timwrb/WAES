@@ -17,10 +17,12 @@ import {Link} from "@inertiajs/vue3";
             </Link>
 
             <ParticipantCard participant="Tim Wurmbrand" id="6122061" />
-            <ParticipantCard participant="Maximilian Fehr" id="6122061" />
-            <ParticipantCard participant="Danial Nikdel Amand" id="6122061" />
-            <ParticipantCard participant="Tim Schleicher" id="6122061" />
-            <ParticipantCard participant="Mohammed Ali Yusuf" id="6122061" />
+            <ParticipantCard participant="Maximilian Fehr" id="6122103" />
+            <ParticipantCard participant="Danial Nikdel Amand" id="6122088" />
+            <ParticipantCard participant="Tim Schleicher" id="6122016" />
+            <ParticipantCard participant="Mohammed Ali Yusuf" id="6122037" />
+            <ParticipantCard participant="Maximilian Bausewein" id="6122062" />
+
 
         </section>
 

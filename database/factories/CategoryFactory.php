@@ -17,7 +17,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->word,
+            'name' => $this->faker->randomElement(['Lebensmittel', 'Nebenkosten', 'Miete', 'Verkehr', 'Restaurant', 'Unterhaltung', 'Gesundheit', 'Einkäufe', 'Bildung', 'Reisen', 'Körperpflege', 'Geschenke', 'Sparen', 'Investitionen', 'Versicherungen', 'Schulden', 'Abonnements', 'Haushalt', 'Haustiere', 'Sonstiges']),
         ];
     }
 }
